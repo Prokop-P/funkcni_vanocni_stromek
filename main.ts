@@ -1,4 +1,4 @@
-function heart () {
+function heart() {
     while (run_function == 3) {
         strip.showColor(neopixel.colors(NeoPixelColors.Red))
         basic.pause(1000)
@@ -6,7 +6,7 @@ function heart () {
         basic.pause(1000)
         strip.showColor(neopixel.colors(NeoPixelColors.Blue))
         basic.pause(1000)
-        strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        strip.showColor(neopixel.colors(NeoPixelColors.Orange))
         basic.pause(1000)
         strip.showColor(neopixel.colors(NeoPixelColors.Purple))
         basic.pause(1000)
@@ -19,9 +19,11 @@ function heart () {
     }
     turn_off()
 }
-function turn_off () {
-    strip.clear()
-    strip.show()
+function turn_off() {
+    if (run_function == 0) {
+        strip.clear()
+        strip.show()
+    }
 }
 input.onButtonPressed(Button.A, function () {
     if (run_function == 3) {
@@ -30,16 +32,18 @@ input.onButtonPressed(Button.A, function () {
         run_function += 1
     }
 })
-function smile () {
-    strip.showRainbow(1, 360)
+function smile() {
     while (run_function == 2) {
-        strip.rotate(1)
-        strip.show()
-        basic.pause(100)
+        strip.showRainbow(1, 360)
+        while (run_function == 2) {
+            strip.rotate(1)
+            strip.show()
+            basic.pause(100)
+        }
     }
     turn_off()
 }
-function cross () {
+function cross() {
     while (run_function == 1) {
         for (let index = 0; index < 6; index++) {
             strip.shift(1)
@@ -65,8 +69,8 @@ function cross () {
             Led += 1
         }
         Led = 0
-        turn_off()
     }
+    turn_off()
 }
 input.onButtonPressed(Button.B, function () {
     if (run_function > 0) {
