@@ -1,9 +1,23 @@
 function heart () {
-    if (run_function == 3) {
-        strip.showRainbow(1, 360)
-    } else {
-        turn_off()
+    while (run_function == 3) {
+        strip.showColor(neopixel.colors(NeoPixelColors.Red))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Green))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Blue))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Purple))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.White))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Violet))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Yellow))
+        basic.pause(1000)
     }
+    turn_off()
 }
 function turn_off () {
     strip.clear()
